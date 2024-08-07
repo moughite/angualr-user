@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">User Information</h2>
+        </div>
+        <div class="card-body">
+            <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input id="firstName" class="form-control" type="text" name="firstName" formControlName="firstName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input id="lastName" class="form-control" type="text" name="lastName" formControlName="lastName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="adresse" class="form-label">Address</label>
+                    <input id="adresse" class="form-control" type="text" name="adresse" formControlName="adresse" required>
+                </div>
+                <div class="mb-3">
+                    <label for="drink" class="form-label">Drink</label>
+                    <select id="drink" class="form-select" formControlName="drink" aria-label="Select your drink" required>
+                        <option value="" disabled selected>Select a drink</option>
+                        <option value="cola">Cola</option>
+                        <option value="pepsi">Pepsi</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

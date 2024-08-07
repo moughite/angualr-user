@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h2 class="mb-0">List of Users</h2>
+            <button class="btn btn-outline-light btn-sm" (click)="addPerson()">
+                <i class="fas fa-user-plus"></i> Ajouter Person
+            </button>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let person of listPerson">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h3 class="mb-0">{{ person.firstName }} {{ person.lastName }}</h3>
+                        <small class="text-muted">{{ person.adresse }}</small><br/>
+                        <small class="text-muted">Preference drink is: {{ person.drink }}</small>
+                    </div>
+                    <button class="btn btn-outline-secondary btn-sm" (click)="viewDetails(person)">
+                        <i class="fas fa-info-circle"></i> Details
+                    </button>
+                </div>
+                <div class="mt-2">
+                    <h5 class="hobbies-title mb-1">Hobbies:</h5>
+                    <ul class="list-inline">
+                        <li *ngFor="let hobby of person.hobbies" class="list-inline-item">
+                            <span class="badge badge-secondary">{{ hobby }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container">
+    <h1>Formatted JSON</h1>
+    <pre>{{ listPerson | json }}</pre>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf="person" class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>{{ person.firstName }} {{ person.lastName }}</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Adresse :</strong> {{ person.adresse }}</p>
+            <p><strong>Boisson favorite :</strong> {{ person.drink }}</p>
+            <h5 *ngIf="person.hobbies && person.hobbies.length > 0">Hobbies :</h5>
+            <ul *ngIf="person.hobbies && person.hobbies.length > 0" class="list-inline">
+                <li *ngFor="let hobby of person.hobbies" class="list-inline-item">
+                    <span class="badge bg-info">{{ hobby }}</span>
+                </li>
+            </ul>
+            <p *ngIf="!person.hobbies || person.hobbies.length === 0">Pas de hobbies disponibles</p>
+            <button class="btn btn-primary mt-3" (click)="goBack()">Retour</button>
+        </div>
+    </div>
+</div>
